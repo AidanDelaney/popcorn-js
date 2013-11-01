@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popcorn div Plug-in Demo</title>
+
+  <script src="../../popcorn.js"></script>
+  <script src="popcorn.div.js"></script>
+  <script>
+    Popcorn( function () {
+      var p = Popcorn( "#video" )
+
+        .div({
+          start: 1,
+          end: 5,
+          source: 'slide00',
+          target: 'textdiv'
+        })
+        .div({
+          start: 5,
+          end: 10,
+          source: 'slide01',
+          target: 'textdiv'
+        })
+        .play().volume( 0 );
+    } );
+
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">Popcorn Text Plug-in Demo</h1>
+  <p> Text displaying "This video made exclusively for drumbeat.org" will appear from 1 to 5.</p>
+  <p> Text displaying "This video made exclusively for drumbeat.org", with <em>exclusively</em> emphasized (e.g., inline html) will appear from 5 to 10.</p>
+  <div>
+    <video id="video"
+      controls
+      width="250px"
+      poster="../../test/poster.png">
+
+      <source id="mp4"
+        src="../../test/trailer.mp4"
+        type='video/mp4; codecs="avc1, mp4a"'>
+
+      <source id="ogv"
+        src="../../test/trailer.ogv"
+        type='video/ogg; codecs="theora, vorbis"'>
+
+      <p>Your user agent does not support the HTML5 Video element.</p>
+
+    </video>
+  </div>
+  <div id="textdiv" width="50%" height="50%">
+  </div>
+  <div id="slide00" style="display:none;" >
+    This video made exclusively for drumbeat.org.
+  </div>
+  <div id="slide01" style="display:none;">
+    <p>This video made <em>exclusively</em> for drumbeat.org.</p>
+  </div>
+</body>
+</html>
